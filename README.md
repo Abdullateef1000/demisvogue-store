@@ -37,7 +37,7 @@ GitHub is the source-code host; it does not run this Node.js API or its MySQL da
 7. Deploy, open the generated HTTPS domain, then configure the Paystack `charge.success` webhook as `https://YOUR-APP-DOMAIN/api/payments/paystack/webhook`. Use a live Paystack key only after confirming the live account and checkout. Test a small transaction and email before announcing the store.
 8. Configure SMTP through a reputable email provider and verify sender-domain SPF/DKIM records if using a custom domain. The CEO address receives order alerts; the customer gets payment-review and delivery updates.
 
-GitHub Pages is not suitable as the live host for this configuration: it only serves static files, while checkout, admin sign-in, MySQL, and private payment proofs require the Node.js server. Railway provides the public website URL; you can later connect a domain you own.
+GitHub Pages is not suitable as the live host for this configuration: it only serves static files, while checkout, admin sign-in, MySQL, and private payment proofs require the Node.js server. A public GitHub Pages preview is available at `https://Abdullateef1000.github.io/demisvogue-store/`; its workflow publishes only the storefront pages and product images, and removes checkout/contact sections. Railway is required for the complete store; you can later connect a domain you own.
 
 ## Admin dashboard
 
