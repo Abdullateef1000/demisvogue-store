@@ -1,0 +1,221 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
+
+:root {
+  --bg: #fffaf7;
+  --panel: #ffffff;
+  --panel-soft: #f8f1ee;
+  --line: rgba(30, 25, 25, 0.08);
+  --text: #1a1717;
+  --text-soft: #5d5a5a;
+  --brand: #d4976d;
+  --brand-deep: #a95e34;
+  --brand-light: #f9d9c7;
+  --gold: #f1c27d;
+  --success: #1ba36d;
+  --warning: #d46b3a;
+  --shadow: 0 18px 40px rgba(24, 18, 15, 0.08);
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  font-family: 'Inter', sans-serif;
+  background: linear-gradient(180deg, #fffaf7 0%, #fffefc 100%);
+  color: var(--text);
+}
+
+a { color: inherit; text-decoration: none; }
+img { max-width: 100%; display: block; }
+button, input, textarea { font: inherit; }
+.container { width: min(1180px, calc(100% - 32px)); margin: 0 auto; }
+.site-header {
+  position: sticky; top: 0; z-index: 30;
+  backdrop-filter: blur(18px);
+  background: rgba(255, 250, 247, 0.88);
+  border-bottom: 1px solid var(--line);
+}
+.nav-bar { display: flex; align-items: center; justify-content: space-between; min-height: 80px; gap: 16px; }
+.brand { display: flex; align-items: center; gap: 14px; }
+.brand-logo { width: 58px; height: 58px; border-radius: 16px; object-fit: cover; border: 2px solid rgba(169, 94, 52, 0.18); box-shadow: 0 10px 20px rgba(122, 70, 50, 0.12); background: #fff; }
+.brand-name { font-size: clamp(1.6rem, 2vw, 2.4rem); font-weight: 900; letter-spacing: -0.06em; }
+.nav-toggle { display: none; width: 46px; height: 46px; border: 1px solid rgba(26, 23, 23, 0.08); border-radius: 12px; background: rgba(255,255,255,0.7); align-items: center; justify-content: center; flex-direction: column; gap: 5px; cursor: pointer; }
+.nav-toggle span { width: 22px; height: 2px; display: block; background: var(--text); border-radius: 99px; transition: transform 0.2s ease, opacity 0.2s ease; }
+.nav-links { display: flex; align-items: center; gap: 18px; flex-wrap: wrap; }
+.nav-links a { font-size: 0.96rem; font-weight: 700; color: var(--text-soft); transition: color 0.2s ease; }
+.nav-links a:hover, .nav-links a:focus-visible { color: var(--brand-deep); }
+.primary-btn, .secondary-btn, .category-card, .product-card button, .form-submit, .whatsapp-btn, .opay-button { transition: transform 0.2s ease, box-shadow 0.2s ease; }
+.primary-btn:hover, .secondary-btn:hover, .category-card:hover, .product-card button:hover, .form-submit:hover, .whatsapp-btn:hover, .opay-button:hover { transform: translateY(-2px); }
+.hero { position: relative; overflow: hidden; padding: 56px 0 30px; }
+.hero::before {
+  content: ""; position: absolute; inset: 0;
+  background: radial-gradient(circle at top right, rgba(212, 151, 109, 0.18), transparent 28%), radial-gradient(circle at left center, rgba(241, 194, 125, 0.12), transparent 24%);
+  pointer-events: none;
+}
+.hero-inner { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 28px; align-items: center; position: relative; }
+.hero-copy { padding: 30px 0; }
+.eyebrow {
+  display: inline-flex; align-items: center; gap: 8px; padding: 8px 12px;
+  border-radius: 999px; background: rgba(212, 151, 109, 0.12); color: var(--brand-deep);
+  font-weight: 800; letter-spacing: 0.04em; text-transform: uppercase; font-size: 0.68rem;
+}
+.hero h1 { margin: 16px 0 18px; font-size: clamp(2.8rem, 5vw, 5rem); line-height: 0.94; letter-spacing: -0.07em; font-weight: 900; }
+.hero h1 span { display: block; color: var(--brand-deep); }
+.hero p { max-width: 620px; margin: 0 0 30px; font-size: 1.08rem; line-height: 1.8; color: var(--text-soft); }
+.hero-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 16px; margin-bottom: 26px; }
+.primary-btn, .secondary-btn, .form-submit, .whatsapp-btn, .opay-button { border: none; cursor: pointer; border-radius: 999px; font-weight: 800; font-size: 0.96rem; }
+.primary-btn, .form-submit {
+  background: linear-gradient(135deg, var(--brand) 0%, var(--brand-deep) 100%);
+  color: #fff; box-shadow: 0 12px 24px rgba(169, 94, 52, 0.2); padding: 16px 28px; display: inline-flex; align-items: center; justify-content: center;
+}
+.secondary-btn { background: #fff; color: var(--text); border: 1px solid rgba(26, 23, 23, 0.1); padding: 15px 24px; }
+.hero-metrics { display: flex; flex-wrap: wrap; gap: 22px; }
+.metric { display: flex; flex-direction: column; gap: 6px; }
+.metric strong { font-size: 1.8rem; font-weight: 900; letter-spacing: -0.06em; }
+.metric span { color: var(--text-soft); font-size: 0.85rem; letter-spacing: 0.02em; }
+.hero-visual { position: relative; display: grid; place-items: center; }
+.showcase { position: relative; width: min(100%, 500px); aspect-ratio: 1 / 1.1; border-radius: 32px; overflow: hidden; background: linear-gradient(135deg, rgba(26, 23, 23, 0.92), rgba(68, 38, 28, 0.94)); box-shadow: var(--shadow); }
+.showcase img { width: 100%; height: 100%; object-fit: cover; opacity: 0.9; display: block; }
+.showcase-badge { position: absolute; background: rgba(255,255,255,0.95); border-radius: 16px; box-shadow: var(--shadow); padding: 14px 18px; font-weight: 800; }
+.badge-top { top: 26px; left: 20px; }
+.badge-bottom { right: 20px; bottom: 24px; }
+.section { padding: 34px 0 26px; }
+.section-header { display: flex; align-items: end; justify-content: space-between; gap: 24px; margin-bottom: 20px; }
+.section-header h2 { margin: 0; font-size: clamp(2rem, 3vw, 3.2rem); line-height: 1; letter-spacing: -0.06em; }
+.section-header p { margin: 0; color: var(--text-soft); max-width: 520px; line-height: 1.7; }
+.category-grid { display: grid; grid-template-columns: repeat(4, minmax(0,1fr)); gap: 18px; }
+.category-card { display: block; position: relative; min-height: 180px; padding: 18px; border-radius: 28px; overflow: hidden; background: linear-gradient(180deg, rgba(0,0,0,0.1), rgba(0,0,0,0.35)), var(--card-color, #f8d6b9); box-shadow: var(--shadow); }
+.category-card::before { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(255,255,255,0.06), rgba(0,0,0,0.2)); }
+.category-card > * { position: relative; z-index: 1; }
+.category-card img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0.82; }
+.category-info { position: absolute; inset: auto 18px 18px 18px; display: flex; align-items: center; justify-content: space-between; gap: 10px; color: #fff; }
+.category-info strong { font-size: 1.15rem; line-height: 1.2; }
+.category-info span { font-size: 0.8rem; opacity: 0.9; }
+.catalog { display: grid; gap: 34px; }
+.catalog-section { padding: 20px 0 0; }
+.catalog-section h3 { margin: 0 0 18px; font-size: clamp(1.7rem, 2vw, 2.5rem); letter-spacing: -0.06em; }
+.catalog-subsection { margin-top: 26px; }
+.catalog-subsection h4 { margin: 0 0 18px; font-size: clamp(1.3rem, 1.8vw, 2rem); letter-spacing: -0.04em; }
+.product-grid { display: grid; grid-template-columns: repeat(4, minmax(0,1fr)); gap: 24px; }
+.product-card { background: var(--panel); border: 1px solid var(--line); border-radius: 24px; overflow: hidden; box-shadow: 0 10px 25px rgba(23,17,16,0.04); }
+.product-image { position: relative; height: 260px; overflow: hidden; background: #f5f0ee; }
+.product-image img { width: 100%; height: 100%; object-fit: cover; }
+.product-tag { position: absolute; left: 14px; top: 14px; background: rgba(255,255,255,0.9); border-radius: 999px; padding: 8px 10px; font-size: 0.72rem; font-weight: 800; color: var(--brand-deep); }
+.product-body { padding: 18px; }
+.product-body h4 { margin: 0 0 10px; font-size: 1.22rem; letter-spacing: -0.04em; }
+.product-meta { display: flex; justify-content: space-between; align-items: center; gap: 12px; margin-bottom: 14px; }
+.product-price { font-size: 1.45rem; font-weight: 900; letter-spacing: -0.05em; }
+.product-rating { color: var(--gold); font-weight: 700; }
+.product-card button { width: 100%; border: none; background: linear-gradient(135deg, #1a1717 0%, #44312c 100%); color: white; padding: 12px 14px; border-radius: 12px; font-weight: 800; cursor: pointer; }
+.featured-perfume-box {
+  background: linear-gradient(135deg, rgba(211,144,103,0.1), rgba(255,255,255,0.9));
+  border: 1px solid rgba(211,144,103,0.2); border-radius: 28px; padding: 24px; display: flex; align-items: center; justify-content: space-between; gap: 24px; box-shadow: var(--shadow);
+}
+.featured-perfume-box h4 { margin: 12px 0 8px; font-size: clamp(1.6rem, 2vw, 2.4rem); letter-spacing: -0.04em; }
+.featured-perfume-box p { margin: 0; color: var(--text-soft); line-height: 1.7; max-width: 620px; }
+.checkout { display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 24px; align-items: start; padding-top: 30px; }
+.checkout-card, .contact-card { background: var(--panel); border: 1px solid var(--line); border-radius: 28px; box-shadow: var(--shadow); padding: 24px; }
+.form-grid { display: grid; gap: 16px; }
+.field { display: grid; gap: 8px; }
+.field label { font-weight: 700; }
+.field input, .field textarea, .field select { width: 100%; border: 1px solid rgba(26,23,23,0.12); border-radius: 14px; padding: 14px 16px; font: inherit; background: #fff; }
+.field textarea { min-height: 140px; resize: vertical; }
+.payment-options { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; margin-bottom: 18px; }
+.payment-method-card {
+  background: linear-gradient(135deg, rgba(255,255,255,0.8), rgba(248,241,238,0.92));
+  border: 1px solid rgba(26,23,23,0.08); border-radius: 22px; padding: 18px; display: grid; gap: 10px;
+}
+.payment-method-card h3 { margin: 0; font-size: 1.3rem; letter-spacing: -0.05em; }
+.payment-method-card p { margin: 0; color: var(--text-soft); line-height: 1.6; }
+.opay-button, .paystack-button, .bank-button { display: inline-flex; align-items: center; justify-content: center; margin-top: 6px; border: none; border-radius: 999px; font-weight: 800; padding: 13px 18px; cursor: pointer; }
+.opay-button { background: linear-gradient(135deg, #25d366 0%, #1cb95b 100%); color: #fff; box-shadow: 0 12px 24px rgba(37,211,102,0.22); }
+.paystack-button { background: linear-gradient(135deg, #2e7df6 0%, #5a49c7 100%); color: #fff; box-shadow: 0 12px 24px rgba(94, 95, 195, 0.2); }
+.bank-button { background: linear-gradient(135deg, #f3c58d 0%, #d9975d 100%); color: #111; }
+.transfer-details {
+  background: rgba(248,241,238,0.8); border: 1px solid rgba(169,94,52,0.12); border-radius: 18px; padding: 16px 18px; margin-bottom: 18px;
+}
+.transfer-details h4 { margin: 0 0 10px; font-size: 1.15rem; }
+.transfer-details p { margin: 8px 0; color: var(--text-soft); line-height: 1.6; }
+.payment-form-spacer { margin-top: 10px; }
+.summary-box { background: linear-gradient(135deg, #fff3eb 0%, #fff 100%); border: 1px solid rgba(212,151,109,0.24); border-radius: 24px; padding: 18px; }
+
+.summary-box h4 { margin: 0 0 12px; font-size: 1.3rem; }
+.summary-list { list-style: none; margin: 0; padding: 0; display: grid; gap: 12px; }
+.summary-list li { display: flex; justify-content: space-between; gap: 10px; color: var(--text-soft); font-weight: 600; }
+.summary-list li strong { color: var(--text); }
+.status { margin-top: 18px; border-radius: 16px; padding: 14px 16px; font-weight: 700; line-height: 1.6; display: none; }
+.status.show { display: block; }
+.status.warning { background: rgba(212,107,58,0.1); color: var(--warning); border: 1px solid rgba(212,107,58,0.2); }
+.status.success { background: rgba(27,163,109,0.1); color: var(--success); border: 1px solid rgba(27,163,109,0.2); }
+.contact-grid { display: grid; grid-template-columns: 1fr; gap: 24px; align-items: start; }
+.company-box { display: grid; gap: 18px; }
+.contact-card h3 { margin: 0 0 12px; font-size: clamp(1.6rem, 2vw, 2.2rem); letter-spacing: -0.05em; }
+.form-grid small { color: var(--text-soft); line-height: 1.5; }
+.contact-item { display: flex; align-items: center; gap: 12px; padding: 12px 0; border-bottom: 1px solid var(--line); color: var(--text-soft); font-weight: 600; }
+.contact-item:last-child { border-bottom: none; }
+.whatsapp-btn { display: inline-flex; align-items: center; justify-content: center; background: #25d366; color: #fff; padding: 15px 22px; }
+.site-footer { padding: 32px 0 48px; color: var(--text-soft); }
+.footer-inner { display: flex; align-items: center; justify-content: space-between; gap: 12px; border-top: 1px solid var(--line); padding-top: 18px; }
+
+.perfume-page { padding: 28px 0 40px; }
+.perfume-hero { display: flex; align-items: center; justify-content: space-between; gap: 24px; margin-bottom: 28px; }
+.perfume-hero h1 { margin: 0; font-size: clamp(2.4rem, 4vw, 4rem); letter-spacing: -0.06em; }
+.perfume-hero p { margin: 8px 0 0; max-width: 560px; color: var(--text-soft); line-height: 1.7; }
+.perfume-grid { display: grid; grid-template-columns: repeat(4, minmax(0,1fr)); gap: 22px; }
+.perfume-card { background: var(--panel); border: 1px solid var(--line); border-radius: 24px; overflow: hidden; box-shadow: var(--shadow); }
+.perfume-card img { width: 100%; height: 260px; object-fit: cover; }
+.perfume-body { padding: 18px; }
+.perfume-name { margin: 0 0 10px; font-size: 1.18rem; letter-spacing: -0.04em; }
+.perfume-meta { display: flex; justify-content: space-between; gap: 12px; align-items: center; }
+.perfume-price { font-size: 1.2rem; font-weight: 900; }
+.perfume-tag { display: inline-flex; padding: 7px 10px; border-radius: 999px; background: rgba(211,144,103,0.12); color: var(--brand-deep); font-size: 0.7rem; font-weight: 800; text-transform: uppercase; }
+
+@media (min-width: 981px) {
+  .nav-links { justify-content: flex-end; }
+  .site-header { padding: 0; }
+}
+
+@media (max-width: 980px) {
+  .nav-bar { min-height: 72px; }
+  .nav-links { gap: 10px 14px; }
+  .hero-inner, .checkout, .contact-grid { grid-template-columns: 1fr; }
+  .category-grid, .product-grid, .perfume-grid { grid-template-columns: repeat(2, minmax(0,1fr)); }
+  .featured-perfume-box, .perfume-hero { display: grid; }
+  .section-header { align-items: flex-start; flex-direction: column; }
+}
+
+@media (max-width: 760px) {
+  .nav-toggle { display: inline-flex; }
+  .nav-links {
+    display: none;
+    width: 100%;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+    padding: 14px 0 8px;
+    border-top: 1px solid var(--line);
+  }
+  .nav-links.is-open { display: flex; }
+  .nav-bar {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 0;
+  }
+  .brand { flex: 1; min-width: 0; }
+  .brand-name { font-size: 1.6rem; }
+  .nav-links a { width: 100%; padding: 6px 0; }
+}
+
+@media (max-width: 680px) {
+  .nav-bar { display: flex; gap: 10px; justify-content: space-between; }
+  .brand { justify-content: flex-start; }
+  .section-header, .footer-inner { display: grid; justify-content: stretch; }
+  .category-grid, .product-grid, .perfume-grid { grid-template-columns: 1fr; }
+  .hero { padding-top: 30px; }
+  .hero h1 { font-size: 2.7rem; }
+  .hero-copy { padding-top: 10px; }
+  .featured-perfume-box { padding: 20px; }
+  .product-image, .perfume-card img { height: 220px; }
+}

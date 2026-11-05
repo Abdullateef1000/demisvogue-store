@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Store Admin | Demisvogue</title>
+  <link rel="stylesheet" href="/admin.css">
+  <script src="/admin.js" defer></script>
+</head>
+<body>
+  <main class="admin-shell">
+    <header class="admin-header">
+      <a class="brand" href="/" aria-label="Demisvogue storefront">
+        <span class="brand-mark">D</span>
+        <span><strong>Demisvogue</strong><small>Store administration</small></span>
+      </a>
+      <button id="logout-button" class="button button-outline" type="button" hidden>Sign out</button>
+    </header>
+
+    <section id="login-panel" class="panel login-panel">
+      <p class="eyebrow">Private access</p>
+      <h1>Admin sign in</h1>
+      <p>Sign in to review orders and payment proofs.</p>
+      <form id="login-form">
+        <label for="admin-password">Admin password</label>
+        <input id="admin-password" name="password" type="password" autocomplete="current-password" required>
+        <button class="button button-primary" type="submit">Sign in</button>
+      </form>
+      <p id="login-message" class="message" role="status" aria-live="polite"></p>
+    </section>
+
+    <section id="dashboard" hidden>
+      <div class="dashboard-title">
+        <div>
+          <p class="eyebrow">Store overview</p>
+          <h1>Orders</h1>
+          <p>Review transfer proofs and keep customers’ order progress up to date.</p>
+        </div>
+        <button id="refresh-button" class="button button-outline" type="button">Refresh orders</button>
+      </div>
+      <div id="order-counts" class="count-grid" aria-live="polite"></div>
+      <div class="toolbar">
+        <label for="status-filter">Show orders</label>
+        <select id="status-filter">
+          <option value="all">All recent orders</option>
+          <option value="pending_review">Transfer proofs to review</option>
+          <option value="paid">Paid</option>
+          <option value="pending_payment">Awaiting payment</option>
+          <option value="failed">Failed or rejected</option>
+        </select>
+      </div>
+      <p id="dashboard-message" class="message" role="status" aria-live="polite"></p>
+      <div id="orders" class="orders-list"></div>
+    </section>
+  </main>
+</body>
+</html>
