@@ -1,3 +1,4 @@
+const PAYSTACK_PUBLIC_KEY = 'pk_test_810f777f0d407a303b7074aa35b1cdae68b4313';
 const navToggle = document.querySelector('.nav-toggle');
 const navLinks = document.querySelector('.nav-links');
 const categoryLinks = document.querySelectorAll('[data-category]');
@@ -13,6 +14,7 @@ const copyTransferDetailsButton = document.getElementById('copy-transfer-details
 const paymentDeliveryAddressInput = document.getElementById('payment-delivery-address');
 const summarySubtotal = document.getElementById('summary-subtotal');
 const summaryTotal = document.getElementById('summary-total');
+const paystackPublicKeyMode = PAYSTACK_PUBLIC_KEY.startsWith('pk_test_') ? 'test' : 'live';
 
 const productButtons = document.querySelectorAll('[data-product-name]');
 const transferAccountName = 'Ibrahim Suliyat';
@@ -134,6 +136,9 @@ if (paystackButton) {
       const result = await response.json();
       if (!response.ok) {
         throw new Error(result.error || 'Could not start Paystack checkout.');
+      }
+      if (result.mode !== paystackPublicKeyMode) {
+        throw new Error('Paystack public and secret keys must both be in test mode or both be in live mode.');
       }
       window.location.assign(result.authorizationUrl);
     } catch (error) {

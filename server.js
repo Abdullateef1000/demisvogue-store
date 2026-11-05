@@ -402,7 +402,11 @@ app.post('/api/payments/paystack/initialize', async (request, response, next) =>
         throw new Error(gatewayData.message || 'Paystack could not initialize the transaction.');
       }
 
-      response.json({ authorizationUrl: gatewayData.data.authorization_url, reference });
+      response.json({
+        authorizationUrl: gatewayData.data.authorization_url,
+        reference,
+        mode: process.env.PAYSTACK_SECRET_KEY.startsWith('sk_test_') ? 'test' : 'live'
+      });
     } catch (error) {
       await pool.execute(
         'UPDATE orders SET payment_status = ? WHERE id = ?',
